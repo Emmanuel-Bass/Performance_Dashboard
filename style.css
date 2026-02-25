@@ -77,6 +77,8 @@ main {
   box-shadow: #34c759;
 }
 .time h1 {
+  width: 90%;
+  margin: auto;
   text-align: center;
   font-size: 42px;
   font-weight: 700;
