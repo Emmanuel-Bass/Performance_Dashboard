@@ -63,7 +63,7 @@ nav {
 }
 
 main {
-    width: 95%;
+    max-width: 90vw;
     margin: 28px auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
