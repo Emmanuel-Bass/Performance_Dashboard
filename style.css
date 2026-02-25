@@ -56,6 +56,7 @@ nav {
 
 main {
   max-width: 90vw;
+  height: 100vh;
   margin: 28px auto;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -66,7 +67,6 @@ main {
 .card-template, .time, .tasks, .focus, .motivate {
   border: 3px solid #1e1e2f;
   border-radius: 10px;
-  height: 50vh;
   width: 100%;
   background: #34c759;
   position: relative;
