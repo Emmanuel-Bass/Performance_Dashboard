@@ -3,6 +3,8 @@ const time = document.createElement('section');
 time.classList.add('time');
 const clock = document.createElement('h1');
 const clockLine = document.createElement('hr');
+const date = document.createElement('h2');
+time.append(clock, clockLine, date);
 
 const updateClock = () => {
     const now = new Date();
@@ -26,9 +28,6 @@ const updateClock = () => {
     clock.textContent = timeString;
     date.textContent = dayString;
 };
-
-const date = document.createElement('h2');
-time.append(clock, clockLine, date);
 updateClock();
 setInterval(updateClock, 1000);
 
@@ -39,6 +38,7 @@ toDo.textContent = 'To-Do-List:';
 const inputField = document.createElement('section');
 inputField.classList.add('inputSect')
 const toDoInput = document.createElement('input');
+toDoInput.placeholder = 'Enter task here...'
 toDoInput.type = 'text';
 const addTaskBtn = document.createElement('button');
 addTaskBtn.textContent = '+Add';
