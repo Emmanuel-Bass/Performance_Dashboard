@@ -140,7 +140,7 @@ main > section {
   list-style-type: none;
   margin-top: 12px;
   overflow-y: auto;
-  height: 40%;
+  max-height: 60%;
 }
 .tasks ul li {
   display: flex;
