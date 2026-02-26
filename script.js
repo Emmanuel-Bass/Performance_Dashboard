@@ -1,4 +1,5 @@
 const dashboard = document.getElementById('dashboard');
+
 const time = document.createElement('section');
 time.classList.add('time');
 const clock = document.createElement('h1');
@@ -8,77 +9,102 @@ time.append(clock, clockLine, date);
 
 const updateClock = () => {
     const now = new Date();
-    let hours = now.getHours();
-    let minutes = now.getMinutes();
-    let seconds = now.getSeconds();
-    let day = now.getDate();
+    const hours = now.getHours().toString().padStart(2,'0');
+    const minutes = now.getMinutes().toString().padStart(2,'0');
+    const seconds = now.getSeconds().toString().padStart(2,'0');
+    const days = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+    const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const dayName = days[now.getDay()];
+    const day = now.getDate().toString().padStart(2,'0');
+    const month = months[now.getMonth()];
 
-    hours = hours.toString().padStart(2, '0');
-    minutes = minutes.toString().padStart(2, '0');
-    seconds = seconds.toString().padStart(2, '0');
-    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-    let dayName = days[now.getDay()];
-    day = day.toString().padStart(2, '0');
-    let month = months[now.getMonth()];
-
-    const timeString = `${hours}:${minutes}:${seconds}`;
-    const dayString = `${dayName}, ${day} ${month}`;
-
-    clock.textContent = timeString;
-    date.textContent = dayString;
+    clock.textContent = `${hours}:${minutes}:${seconds}`;
+    date.textContent = `${dayName}, ${day} ${month}`;
 };
 updateClock();
 setInterval(updateClock, 1000);
 
-const tasks = document.createElement('section');
-tasks.classList.add('tasks');
-const toDo = document.createElement('h2');
-toDo.textContent = 'To-Do-List:';
-const inputField = document.createElement('section');
-inputField.classList.add('inputSect')
-const toDoInput = document.createElement('input');
-toDoInput.placeholder = 'Enter task here...'
-toDoInput.type = 'text';
-const addTaskBtn = document.createElement('button');
-addTaskBtn.textContent = '+Add';
-inputField.append(toDoInput, addTaskBtn)
-const taskList = document.createElement('ul');
-const taskFullBtn = document.createElement('button');
-taskFullBtn.textContent = 'See fullscreen';
-taskFullBtn.classList.add('fullscreenBtn');
-tasks.append(toDo, inputField, taskList, taskFullBtn);
+let tasksData = [];
 
-const addTasks = () => {
-    const taskText = toDoInput.value;
-    if (!taskText) return;
+const loadTasks = () => {
+    const saved = localStorage.getItem("tasks");
+    if (saved) tasksData = JSON.parse(saved);
+};
+loadTasks();
 
-    const taskItem = document.createElement('li');
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    const taskPara = document.createElement('p');
-    taskPara.textContent = taskText;
-    taskItem.append(checkbox, taskPara);
-    taskList.appendChild(taskItem);
-    toDoInput.value = '';
-    checkbox.addEventListener('change', () => {
-        if (checkbox.checked) {
-            taskPara.style.textDecoration = 'line-through';
-            taskPara.style.color = 'grey';
-        } else {
-            taskPara.style.textDecoration = 'none';
-            taskPara.style.color = '#2c2c2c';
-        }
-    })
-}
-addTaskBtn.addEventListener('click', addTasks);
-
-const applyFull = () => {
-    tasks.classList.add('fullscreen');
-    document.body.style.overflow = 'hidden';
+const saveTasks = () => {
+    localStorage.setItem("tasks", JSON.stringify(tasksData));
 };
 
-taskFullBtn.addEventListener('click', applyFull);
+const tasks = document.createElement('section');
+tasks.classList.add('tasks');
+
+const toDo = document.createElement('h2');
+toDo.textContent = 'To-Do-List:';
+
+const inputField = document.createElement('section');
+inputField.classList.add('inputSect');
+
+const toDoInput = document.createElement('input');
+toDoInput.placeholder = 'Enter task here...';
+toDoInput.type = 'text';
+
+const addTaskBtn = document.createElement('button');
+addTaskBtn.textContent = '+Add';
+
+inputField.append(toDoInput, addTaskBtn);
+
+const taskList = document.createElement('ul');
+tasks.append(toDo, inputField, taskList);
+
+const renderTasks = () => {
+    taskList.innerHTML = '';
+
+    tasksData.forEach((task, index) => {
+        const li = document.createElement('li');
+
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = task.completed;
+
+        const taskText = document.createElement('p');
+        taskText.textContent = task.text;
+        taskText.classList.add('taskPara');
+        if(task.completed) taskText.classList.add('checked');
+
+        const taskDelBtn = document.createElement('button');
+        taskDelBtn.classList.add('taskDelBtn');
+        taskDelBtn.textContent = 'X';
+
+        li.append(checkbox, taskText, taskDelBtn);
+        taskList.appendChild(li);
+
+        checkbox.addEventListener('change', () => {
+            task.completed = checkbox.checked;
+            taskText.classList.toggle('checked', checkbox.checked);
+            saveTasks();
+        });
+
+        taskDelBtn.addEventListener('click', () => {
+            tasksData.splice(index, 1);
+            saveTasks();
+            renderTasks();
+        });
+    });
+
+    saveTasks();
+};
+
+addTaskBtn.addEventListener('click', () => {
+    const text = toDoInput.value.trim();
+    if(!text) return;
+
+    tasksData.push({ text: text, completed: false });
+    toDoInput.value = '';
+    renderTasks();
+});
+
+renderTasks();
 
 const myFocus = document.createElement('section');
 myFocus.classList.add('focus');

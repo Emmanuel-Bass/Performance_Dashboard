@@ -22,7 +22,7 @@ nav {
 
 .dark {
   background-color: black;
-  color: #1e1e2f;
+  color: #f4f6f8;
 }
 
 .themeBtn {
@@ -30,17 +30,17 @@ nav {
   height: 22px;
   display: flex;
   justify-content: space-between;
-  border: 1px solid #f5f5f5;
+  border: 1px solid #fff;
   border-radius: 999px;
   overflow: hidden;
   cursor: pointer;
-  background: #f5f5f5;
+  background: #6070ff;
   position: relative;
 }
 
 .themeBtn i {
   display: block;
-  background-color: #1e1e2f;
+  background-color: #f4f6f8;
   width: 18px;
   height: 18px;
   border-radius: 50%;
@@ -68,16 +68,16 @@ main > section {
 }
 
 .card-template, .time, .tasks, .focus, .motivate {
-  border: 3px solid #1e1e2f;
+  border: 3px solid #f4f6f8;
   border-radius: 10px;
   width: 100%;
-  background: #34c759;
+  background: #9ca3af;
   position: relative;
 }
 
 .time {
-  padding: 38px 10px;
-  box-shadow: #34c759;
+  padding: 20% 10px;
+  box-shadow: #9ca3af;
 }
 .time h1 {
   text-align: center;
@@ -109,59 +109,67 @@ main > section {
   gap: 4px;
 }
 .tasks .inputSect input {
+  color: #0f172a;
   border: none;
   border-radius: 8px;
   flex: 1;
   padding: 4px;
 }
-.tasks .inputSect input:active {
-  background-color: red;
-}
 .tasks .inputSect input:focus {
-  color: #f5f5f5;
+  color: #1f2933;
   border: none;
-  background: #2c2c2c;
-  outline: 2px solid #1e1e2f;
+  background: #e5e7eb;
+  outline: 2px solid #f4f6f8;
 }
 .tasks .inputSect button {
-  background: #ffd60a;
+  background: #1f2933;
   border: none;
+  color: #fff;
   padding: 4px;
   border-radius: 8px;
 }
 .tasks .inputSect button:active {
   border: none;
-  outline: 2px solid #1e1e2f;
-  background: #2c2c2c;
-  color: #f5f5f5;
+  outline: 2px solid #f4f6f8;
+  background: #fff;
+  color: #0f172a;
   font-weight: 700;
 }
 .tasks ul {
   list-style-type: none;
   margin-top: 12px;
   overflow-y: auto;
-  max-height: 60%;
+  max-height: 70%;
 }
 .tasks ul li {
   display: flex;
+  flex-direction: row;
   gap: 4px;
   align-items: center;
+  justify-content: space-between;
   margin-bottom: 8px;
   font-weight: 700;
-  color: #2c2c2c;
-  border-bottom: 2px solid #f5f5f5;
-  border-bottom-right-radius: 30%;
+  color: #0f172a;
+  border-bottom: 2px solid #fff;
   padding: 4px;
-  word-break: break-all;
+  overflow-wrap: anywhere;
   max-width: 100%;
 }
+.tasks ul li section {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+.tasks ul li button.taskDelBtn {
+  background-color: #f4f6f8;
+  color: #1f2933;
+  border: 1px solid #fff;
+  padding: 2px;
+  text-align: center;
+  border-radius: 4px;
+}
 
-.fullscreen {
-  height: 100vh;
-  width: 100vw;
-  margin: auto;
-  backdrop-filter: blur(8px);
-  position: fixed;
-  inset: 0;
-  z-index: 999;
+.checked {
+  text-decoration: line-through;
+  color: #fff;
 }/*# sourceMappingURL=style.css.map */

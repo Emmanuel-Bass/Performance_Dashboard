@@ -1,10 +1,10 @@
-$primary-color1: #f5f5f5;
-$primary-color2: #1e1e2f;
-$primary-color3: #4a90e2;
-$primary-color4: #34c759;
-$primary-color5: #ffd60a;
-$primary-color6: #2c2c2c;
-$primary-color7: #a0a0a0;
+$primary-color1: #fff;
+$primary-color2: #f4f6f8;
+$primary-color3: #e5e7eb;
+$primary-color4: #9ca3af;
+$primary-color5: #1f2933;
+$primary-color6: #0f172a;
+$primary-color7: #6070ff;
 
 * {
     margin: 0;
@@ -42,7 +42,7 @@ nav {
   border-radius: 999px;
   overflow: hidden;
   cursor: pointer;
-  background: $primary-color1;
+  background: $primary-color7;
   position: relative;
 }
 
@@ -89,7 +89,7 @@ main {
 }
 
 .time {
-    padding: 38px 10px;
+    padding: 20% 10px;
     box-shadow: $primary-color4;
 
     h1 {
@@ -118,65 +118,74 @@ main {
     }
     padding: 12px;
     .inputSect {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 4px;
-    input {
-        border: none;
-        border-radius: 8px;
-        flex: 1;
-        padding: 4px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 4px;
+        input {
+            color: $primary-color6;
+            border: none;
+            border-radius: 8px;
+            flex: 1;
+            padding: 4px;
+        }
+        input:focus {
+            color: $primary-color5;
+            border: none;
+            background: $primary-color3;
+            outline: 2px solid $primary-color2;
+        }
+        button {
+            background: $primary-color5;
+            border: none;
+            color: $primary-color1;
+            padding: 4px;
+            border-radius: 8px;
+        }
+        button:active {
+            border: none;
+            outline: 2px solid $primary-color2;
+            background: $primary-color1;
+            color: $primary-color6;
+            font-weight: 700;
+        }
     }
-    input:active {
-        background-color: red;
-    }
-    input:focus {
-        color: $primary-color1;
-        border: none;
-        background: $primary-color6;
-        outline: 2px solid $primary-color2;
-    }
-    button {
-        background: $primary-color5;
-        border: none;
-        padding: 4px;
-        border-radius: 8px;
-    }
-    button:active {
-        border: none;
-        outline: 2px solid $primary-color2;
-        background: $primary-color6;
-        color: $primary-color1;
-        font-weight: 700;
-    }
-}
-ul {
+    ul {
         list-style-type: none;
         margin-top: 12px;
         overflow-y: auto;
-        max-height: 60%;
+        max-height: 70%;
         li {
             display: flex;
+            flex-direction: row;
             gap: 4px;
             align-items: center;
+            justify-content: space-between;
             margin-bottom: 8px;
             font-weight: 700;
             color: $primary-color6;
             border-bottom: 2px solid $primary-color1;
-            border-bottom-right-radius: 30%;
             padding: 4px;
-            word-break: break-all;
+            overflow-wrap: anywhere;
             max-width: 100%;
+            section {
+                display: flex;
+                gap: 2px;
+                align-items: center;
+            }
+            button.taskDelBtn {
+                background-color: $primary-color2;
+                color: $primary-color5;
+                border: 1px solid $primary-color1;
+                padding: 2px;
+                text-align: center;
+                border-radius: 4px;
+            }
         }
     }
 }
-.fullscreen {
-    height: 100vh;
-    width: 100vw;
-    margin: auto;
-    backdrop-filter: blur(8px);
-    position: fixed;
-    inset: 0;
-    z-index: 999;
+
+.checked {
+    text-decoration: line-through;
+    color: $primary-color1;
 }
