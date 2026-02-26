@@ -7,7 +7,6 @@ $primary-color6: #2c2c2c;
 $primary-color7: #a0a0a0;
 
 * {
-    cursor: pointer;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -155,7 +154,7 @@ main {
 ul {
         list-style-type: none;
         margin-top: 12px;
-        overflow-y: scroll;
+        overflow-y: auto;
         li {
             display: flex;
             gap: 4px;
