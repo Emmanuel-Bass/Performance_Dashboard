@@ -64,15 +64,11 @@ nav {
 
 main {
     max-width: 90%;
-    height: 80vh;
-    margin: 28px auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 1rem;
+    margin: 8px auto;
     
     > section {
         overflow: hidden;
+        margin-bottom: 12px;
     }
 }
 
@@ -89,30 +85,30 @@ main {
 }
 
 .time {
-    padding: 20% 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 4px 12px;
+    gap: 8px;
     box-shadow: $primary-color4;
 
     h1 {
-        text-align: center;
+        font-family: "Sofia", cursive;
+        text-align: right;
         font-weight: bolder;
-    }
-
-    hr {
-        border: none;
-        background: linear-gradient(to right, rgba(255, 0, 0, 0.2), rgba(0, 0, 255, 0.3));
-        height: 8px;
-        border-radius: 20px;
-        margin-top: 10px;
+        color: $primary-color6;
     }
 
     h2 {
+        font-family: "Sofia", cursive;
         text-align: center;
-        margin-top: 20px;
         font-size: 30px;
+        font-weight: bolder;
+        color: $primary-color6;
     }
 }
 
 .tasks {
+    height: 50vh;
     h2 {
         margin-bottom: 8px;
     }
@@ -170,11 +166,12 @@ main {
             max-width: 100%;
             section {
                 display: flex;
-                gap: 2px;
+                gap: 8px;
                 align-items: center;
             }
             button.taskDelBtn {
-                background-color: $primary-color2;
+                width: 18px;
+                background-color: $primary-color6;
                 color: $primary-color5;
                 border: 1px solid $primary-color1;
                 padding: 2px;

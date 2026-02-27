@@ -3,9 +3,8 @@ const dashboard = document.getElementById('dashboard');
 const time = document.createElement('section');
 time.classList.add('time');
 const clock = document.createElement('h1');
-const clockLine = document.createElement('hr');
 const date = document.createElement('h2');
-time.append(clock, clockLine, date);
+time.append(clock, date);
 
 const updateClock = () => {
     const now = new Date();
@@ -63,6 +62,8 @@ const renderTasks = () => {
     tasksData.forEach((task, index) => {
         const li = document.createElement('li');
 
+        const taskName = document.createElement('section');
+
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.checked = task.completed;
@@ -72,11 +73,12 @@ const renderTasks = () => {
         taskText.classList.add('taskPara');
         if(task.completed) taskText.classList.add('checked');
 
+        taskName.append(checkbox, taskText);
+
         const taskDelBtn = document.createElement('button');
         taskDelBtn.classList.add('taskDelBtn');
-        taskDelBtn.textContent = 'X';
 
-        li.append(checkbox, taskText, taskDelBtn);
+        li.append(taskName, taskDelBtn);
         taskList.appendChild(li);
 
         checkbox.addEventListener('change', () => {
