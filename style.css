@@ -40,7 +40,7 @@ nav {
 
 .themeBtn i {
   display: block;
-  background-color: #f4f6f8;
+  background-color: #0f172a;
   width: 18px;
   height: 18px;
   border-radius: 50%;
@@ -51,7 +51,7 @@ nav {
 
 .themeBtn.dark i {
   left: 28px;
-  background-color: black;
+  background-color: #fff;
 }
 
 main {
@@ -63,7 +63,7 @@ main > section {
   margin-bottom: 12px;
 }
 
-.card-template, .time, .tasks, .focus, .motivate {
+.card-template, .time, .tasks, .music, .motivate {
   border: 3px solid #f4f6f8;
   border-radius: 10px;
   width: 100%;
@@ -75,7 +75,7 @@ main > section {
   display: flex;
   justify-content: space-between;
   flex-wrap: nowrap;
-  padding: 4px;
+  padding: 4px 7px;
   box-shadow: #9ca3af;
 }
 .time h1 {
@@ -139,6 +139,8 @@ main > section {
   font-weight: 700;
 }
 .tasks ul {
+  display: flex;
+  flex-direction: column;
   list-style-type: none;
   margin-top: 12px;
   overflow-y: auto;
@@ -176,4 +178,34 @@ main > section {
 .checked {
   text-decoration: line-through;
   color: #fff;
+}
+
+.music section.songWrapper img.songImg {
+  width: 100px;
+  border-radius: 12px;
+  height: 100%;
+}
+.music section.songWrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  width: 80%;
+  margin: auto;
+}
+.music section.musicNav {
+  padding: 8px;
+}
+.music section.musicNav h1 {
+  font-size: 18px;
+}
+.music section.musicNav h2 {
+  font-size: 14px;
+}
+.music section.musicNav p button {
+  padding: 0;
+  background: none;
+  border: none;
+}
+.music section.musicNav p button svg {
+  padding: 0;
 }/*# sourceMappingURL=style.css.map */
