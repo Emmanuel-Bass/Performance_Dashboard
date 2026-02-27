@@ -79,6 +79,7 @@ main > section {
   box-shadow: #9ca3af;
 }
 .time h1 {
+  min-width: 8ch;
   font-variant-numeric: tabular-nums;
   font-family: "Sofia", monospace;
   text-align: center;
