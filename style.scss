@@ -87,13 +87,13 @@ main {
 .time {
     display: flex;
     justify-content: space-between;
-    padding: 4px 12px;
-    gap: 8px;
+    flex-wrap: nowrap;
+    padding: 4px;
     box-shadow: $primary-color4;
 
     h1 {
-        min-width: 8ch;
         font-variant-numeric: tabular-nums;
+        white-space: nowrap;
         font-family: "Sofia", monospace;
         text-align: center;
         font-weight: bolder;
