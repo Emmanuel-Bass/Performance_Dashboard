@@ -92,8 +92,9 @@ main {
     box-shadow: $primary-color4;
 
     h1 {
-        font-family: "Sofia", cursive;
-        text-align: right;
+        font-variant-numeric: tabular-nums;
+        font-family: "Sofia", monospace;
+        text-align: center;
         font-weight: bolder;
         color: $primary-color6;
     }
@@ -128,6 +129,8 @@ main {
         input:focus {
             color: $primary-color5;
             border: none;
+            margin-bottom: 4px;
+            transition: margin-bottom 0.3s ease;
             background: $primary-color3;
             outline: 2px solid $primary-color2;
         }

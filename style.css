@@ -79,8 +79,9 @@ main > section {
   box-shadow: #9ca3af;
 }
 .time h1 {
-  font-family: "Sofia", cursive;
-  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-family: "Sofia", monospace;
+  text-align: center;
   font-weight: bolder;
   color: #0f172a;
 }
@@ -117,6 +118,8 @@ main > section {
 .tasks .inputSect input:focus {
   color: #1f2933;
   border: none;
+  margin-bottom: 4px;
+  transition: margin-bottom 0.3s ease;
   background: #e5e7eb;
   outline: 2px solid #f4f6f8;
 }
