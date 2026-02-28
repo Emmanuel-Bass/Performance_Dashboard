@@ -189,8 +189,7 @@ main > section {
   display: flex;
   flex-direction: row;
   gap: 4px;
-  width: 80%;
-  margin: auto;
+  margin-bottom: 4px;
 }
 .music section.musicNav {
   padding: 8px;
